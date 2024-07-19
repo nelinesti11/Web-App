@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>obituary</title>
+    <style>
+        body{
+            background-color: dodgerblue;
+            font-family: Arial, sans-serif;
+            margin: 10;
+            padding: 20;
+        }
+        header{
+            background-color: rgb(5, 19, 19);
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 2px solid magenta;
+            border-radius: 10px;
+        }
+
+        fieldset {
+            border: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        h2 {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: rgb(21, 22, 21);
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+
+        input[type="text"],
+        input[type="date"],
+        textarea{
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 2px solid rgb(107, 141, 173);
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            background-color: rgb(255, 51, 0);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: darkmagenta;
+        }
+        
+    </style>
+</head>
+<body>
+    <header>
+        <h1>welcome to obituary report submision</h1>
+        <a href="view_obituaries.html">view and display</a>
+    </header>
+    <center><img src="https://render.fineartamerica.com/images/rendered/square-dynamic/small/images/artworkimages/mediumlarge/1/red-rose-flowers-prakash-ghai.jpg" height="300" width="100%"></center>
+    <Fieldset>
+    <h2>Enter the following details.</h2>
+    <form id="obituary_form" method="post" action="submit_obituary.php" onsubmit="return validateForm()">
+        Name:
+        <input type="text" id="name" name="name"><br><br>
+        Date of birth:
+        <input type="date" id="dob" name="dob"><br><br>
+        Date of death:
+        <input type="date" id="dob" name="dod"><br><br>
+
+        Content:<br>
+        <textarea id="content" name="content" cols="50" rows="4"></textarea><br><br>
+
+        Author:
+        <input type="text" id="author" name="author"><br><br>
+        <input type="submit" name="submit" value="SUBMIT">
+    </form>
+</fieldset>
+<script>
+    function validateForm() {
+        var name = document.getElementById("name").value;
+        var dob = document.getElementById("dob").value;
+        var dod = document.getElementById("dod").value;
+        var content = document.getElementById("content").value;
+        var author = document.getElementById("author").value;
+        
+        if (name === "") {
+          alert("Name must be filled out");
+          return false;
+        }
+        
+        if (dob === "") {
+          alert("Date of Birth must be filled out");
+          return false;
+        }
+        
+        if (dod === "") {
+          alert("Date of Death must be filled out");
+          return false;
+        }
+        
+        if (content === "") {
+          alert("Content must be filled out");
+          return false;
+        }
+        
+        if (author === "") {
+          alert("Author must be filled out");
+          return false;
+        }
+        
+        // Additional validation logic can be added here
+        
+        return true; // Form is valid
+      }
+</script>
+</body>
+</html>
